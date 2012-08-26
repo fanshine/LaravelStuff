@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<div id="content">
+    <div class="text-post posts">
+            <h2>{{page.title}}</h2>
+            <div class="caption rich-content">
+
+				{{content}}
+
+            </div>
+		<div class="meta">
+			<p> ∞ 发布日期：{{ page.date | date: "%Y-%m-%d" }} </p>
+			<p> ∞ 发布目录：{{page.categories}} </p>
+			<p> ∞ 发布标签：{% for tag in page.tags %}{% if forloop.last %}{{tag}}{% else %}{{tag}}, {% endif %}{% endfor %}</p>
+            <p> ∞ 永久连接：{{site.url}}{{page.url}} </p>
+		</div>
+	</div>
+</div>
+		
