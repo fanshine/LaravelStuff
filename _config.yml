@@ -3,11 +3,13 @@ auto:        true
 server:      false
 server_port: 4000
 baseurl:     /
-
-author:      zhanglubing
-email:       zhanglubing927@me.com
-
 url:         http://zhanglubing.github.com
+
+author:
+  name:      zhanglubing
+  blog:      少有人走的路
+  email1:    zhanglubing927@gmail.com
+  email2:    zhanglubing927[at]gmail.com
 
 feed:        /atom.xml
 

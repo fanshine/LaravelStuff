@@ -59,7 +59,7 @@ description: '教你一步一步搭建Jekyll博客【Mac】。'
 	该代码让Jekyll自动检测修改，否则每次修改后，你都需要重新启动服务器才能看到变化，比较麻烦。更多Jekyll的配置，请看[官方配置说明](https://github.com/mojombo/jekyll/wiki/configuration)。
 
 7. **定义默认的布局文件**  
-	一起看起来都还OK？那么我们来开始完善我们的博客吧，首先我们需要一个模板，这个模板供所有页面使用，它会引入需要的css，javascript等文件，以及导航条，版权等信息。我想你应该熟悉这个模板的样子，所以我只想说明其中你可能需要注意的两点，具体细节可以参考下我的[default.html](https://github.com/{{site.author}}/{{site.author}}.github.com/blob/master/_layouts/default.html)。
+	一起看起来都还OK？那么我们来开始完善我们的博客吧，首先我们需要一个模板，这个模板供所有页面使用，它会引入需要的css，javascript等文件，以及导航条，版权等信息。我想你应该熟悉这个模板的样子，所以我只想说明其中你可能需要注意的两点，具体细节可以参考下我的[default.html](https://github.com/{{site.author.name}}/{{site.author.name}}.github.com/blob/master/_layouts/default.html)。
 	* **标题** 你可能需要自定义你的标题，我是这样定义我的博客标题的：
 
 		> \{_%_ if page.title %\} \{\{ page.title \}\} - \{_%_ endif %\} 少有人走的路
@@ -79,7 +79,7 @@ description: '教你一步一步搭建Jekyll博客【Mac】。'
 	> layout: default  
 	> \---  
 
-	这样，post的布局就使用了默认的模板，只需要针对博文制定下模板就可以了，比如说标题，内容，日期如何显示等，具体细节可以参考下我的[post.html](https://github.com/{{site.author}}/{{site.author}}.github.com/blob/master/_layouts/post.html)。需要注意的是：post里也有可以使用\{\{conten\}\}，但是这里该变量已经不是占位符了，可以说它是一个变量，即post\.content，代表了博文的正文内容。  
+	这样，post的布局就使用了默认的模板，只需要针对博文制定下模板就可以了，比如说标题，内容，日期如何显示等，具体细节可以参考下我的[post.html](https://github.com/{{site.author.name}}/{{site.author.name}}.github.com/blob/master/_layouts/post.html)。需要注意的是：post里也有可以使用\{\{conten\}\}，但是这里该变量已经不是占位符了，可以说它是一个变量，即post\.content，代表了博文的正文内容。  
 	完成这一步后，可以打开[hello-world](http://localhost:4000/2012-08-15/hello-world.html)页面看看你的模板是否都起作用了。
 
 9. **定义首页**  
@@ -101,7 +101,7 @@ description: '教你一步一步搭建Jekyll博客【Mac】。'
 	> title: 首页  
 	> \---  
 
-	具体细节可以参考下我的[index.html](https://github.com/{{site.author}}/{{site.author}}.github.com/blob/master/index.html)。
+	具体细节可以参考下我的[index.html](https://github.com/{{site.author.name}}/{{site.author.name}}.github.com/blob/master/index.html)。
 
 10. **按日期归档博客**  
 	每个博客都应该有一个归档的功能。我们也来做一个吧。新建archives.html，增加如下代码：
@@ -131,7 +131,7 @@ description: '教你一步一步搭建Jekyll博客【Mac】。'
 	> title: 归档  
 	> \---  
 
-	具体细节可以参考下我的[archives.html](https://github.com/{{site.author}}/{{site.author}}.github.com/blob/master/archives.html)。
+	具体细节可以参考下我的[archives.html](https://github.com/{{site.author.name}}/{{site.author.name}}.github.com/blob/master/archives.html)。
 
 11. **代码高亮**  
 	(待完成)

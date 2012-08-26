@@ -12,8 +12,8 @@ layout: nil
     <id>{{ site.url }}</id>
 
     <author>
-        <name>少有人走的路</name>
-        <email>zhanglubing927@gmail.com</email>
+        <name>{{site.author.blog}}</name>
+        <email>{{site.author.email1}}</email>
     </author>
 
     {% for post in site.posts limit:10 %}
