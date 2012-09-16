@@ -7,11 +7,11 @@ layout: default
 		$("#comments_trigger").toggle(
 			function(){
 				$("#comments_list").show();
-				$("#comments_trigger").html("<b>Hide Comments</b>");
+				$("#comments_trigger").html("<b>隐藏评论</b>");
 			},
 			function(){
 				$("#comments_list").hide();
-				$("#comments_trigger").html("<b>Show Comments</b>");
+				$("#comments_trigger").html("<b>显示评论</b>");
 			}
 		);
 	});
@@ -36,7 +36,7 @@ layout: default
 		</div>
 
 		<div class="comments">
-			<a id="comments_trigger" href="#comments" onclick="show_comments()"><b>Show Comments</b></a>
+			<a id="comments_trigger" href="#comments" onclick="show_comments()"><b>显示评论</b></a>
 			<div id="comments_list" style="display: none;">
 				<hr/>
 				<div id="bm_comments"></div>
