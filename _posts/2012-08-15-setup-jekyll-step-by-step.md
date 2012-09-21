@@ -2,7 +2,7 @@
 title: 教你一步一步搭建Jekyll博客【Mac】
 layout: post
 categories: ['Teach']
-tags: ['Jekyll', 'Github']
+tags: ['Jekyll']
 description: '教你一步一步搭建Jekyll博客【Mac】。'
 ---
 
@@ -102,7 +102,7 @@ description: '教你一步一步搭建Jekyll博客【Mac】。'
 	> \---  
 	具体细节可以参考下我的[archives.html](https://github.com/{{site.author.name}}/{{site.author.name}}.github.com/blob/master/archives.html)。
 11. **代码高亮**  
-	(待完成)
+	见我另外一篇博客：[Jekyll代码高亮](/2012-09-21/jekyll-code-highlight.html)
 12. **集成第三方评论**  
 	（待完成）
 13. **后续工作**  
