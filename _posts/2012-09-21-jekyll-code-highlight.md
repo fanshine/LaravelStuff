@@ -35,7 +35,7 @@ Jekyll的代码高亮是使用[Pygments][2]来完成的，它是一款语法高�
 然后，在博客中使用代码高亮，高亮代码的模板是这样的：
 
 > \{_%_ highlight *词法分析器* %\}  
-> \# 需要高亮的代码  
+> 需要高亮的代码  
 > \{_%_ endhighlight %\}  
 
 词法分析器是指你需要高亮的代码是何种语言，比如说**Shell脚本**的词法分析器是**sh**，**Java**的词法分析器是**java**。支持的词法分析器可以在官方文档[Available lexers][4]找到。
@@ -43,7 +43,6 @@ Jekyll的代码高亮是使用[Pygments][2]来完成的，它是一款语法高�
 例如你要高亮Java版的HelloWorld，只需要把如下代码粘贴到你的博客中：
 
 > \{_%_ highlight java %\}  
-> package hello;  
 > public class Hello {  
 > &nbsp;&nbsp;public static void main(String[] args) {  
 > &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Hello World!");  
@@ -54,7 +53,6 @@ Jekyll的代码高亮是使用[Pygments][2]来完成的，它是一款语法高�
 在我的博客中，显示效果如下：
 
 {% highlight java %}
-package hello;
 public class Hello {
     public static void main(String[] args) {
         System.out.println("Hello World!");  
@@ -67,6 +65,7 @@ public class Hello {
 ### Github Pages ###
 
 [GitHub Pages][5]也是支持**\{_%_ highlight %\}**标记的，提交上去的博客，生成的代码html代码和你本地生成的相同，另外又使用里相同的样式，所以不会有任何问题。
+
 
 [1]: http://www.python.org/ "Python"
 [2]: http://pygments.org/ "Pygments"
