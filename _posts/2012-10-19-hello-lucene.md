@@ -56,20 +56,12 @@ private void indexDocs(IndexWriter writer, File path) throws IOException {
 			}
 		}
 	} else {
-		FileReader reader = null;
-		try {
-			Document doc = new Document();
-			doc.add(new StringField("name", path.getName(), Field.Store.YES));
-			doc.add(new StringField("path", path.getPath(), Field.Store.YES));
-			reader = new FileReader(path);
-			doc.add(new TextField("contents", reader));
-			System.out.println("adding " + path);
-			writer.addDocument(doc);
-		} finally {
-			if (reader != null) {
-				reader.close();
-			}
-		}
+		Document doc = new Document();
+		doc.add(new StringField("name", path.getName(), Field.Store.YES));
+		doc.add(new StringField("path", path.getPath(), Field.Store.YES));
+		doc.add(new TextField("contents", new FileReader(path)));
+		System.out.println("adding " + path);
+		writer.addDocument(doc);
 	}
 }
 {% endhighlight %}
@@ -80,8 +72,7 @@ public void search() {
 	String searchField = "contents";
 	String keyWorld = "String";
 	try {
-		IndexReader reader = DirectoryReader.open(FSDirectory
-				.open(new File(index)));
+		IndexReader reader = DirectoryReader.open(FSDirectory.open(new File(index)));
 		IndexSearcher searcher = new IndexSearcher(reader);
 		Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_40);
 		QueryParser parser = new QueryParser(Version.LUCENE_40, searchField, analyzer);
