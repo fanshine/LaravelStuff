@@ -4,9 +4,6 @@ layout: post
 categories: ['Hello']
 tags: ['HelloWorld', 'Lucene']
 description: 'Lucene简介和入门'
-
-published: false
-
 ---
 
 这几天我花了些时间去研究了下Lucene，读了很多博客和文章，也写了些示例代码，对全文检索以及使用到的技术都有了认识，感觉非常好。  
@@ -28,19 +25,82 @@ Lucene主要完成两件事：
 先说下什么是正向索引（若是有这个概念的话），给你一些文档，让你找到里面的词/短语，类似小学课堂上，老说问：“同学们，有谁来总结下这篇文章讲了什么？”，这是一个从文档到词/短语的过程。  
 而反向索引刚好相反，它是指从词/短语到文档的过程，举一个例子：给出“Java”这个关键字，找到所有Java相关的文档。
 
-当索引创建已经创建好之后，搜索文档就是先到索引库里去找索引，然后根据找到的索引找到文档。
-
-整个过程可以用下图表示：
+当索引创建已经创建好之后，搜索文档就是先到索引库里去找索引，然后根据找到的索引找到文档。整个过程可以用下图表示：
 ![Lucene典型应用结构图]({{site.url}}/uploads/2012-10-19/lucene.png)
 
 ### 入门示例 ###
 
-1. 创建索引  
-// TODO 代码
-2. 搜索  
-// TODO 代码
+**创建索引**
+{% highlight java %}
+public void index() throws IOException {
+	try {
+		String docsDir = "src";
+		String indexDir = "target/index";
+		Directory directory = FSDirectory.open(new File(indexDir));
+		Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_40);
+		IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_40, analyzer);
+		IndexWriter writer = new IndexWriter(directory, config);
+		indexDocs(writer, new File(docsDir));
+		writer.close();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+}
 
-完整示例源码下载：[lucene.zip][2]
+private void indexDocs(IndexWriter writer, File path) throws IOException {
+	if (path.isDirectory()) {
+		File[] files = path.listFiles();
+		if (files != null) {
+			for (int i = 0; i < files.length; i++) {
+				indexDocs(writer, files[i]);
+			}
+		}
+	} else {
+		FileReader reader = null;
+		try {
+			Document doc = new Document();
+			doc.add(new StringField("name", path.getName(), Field.Store.YES));
+			doc.add(new StringField("path", path.getPath(), Field.Store.YES));
+			reader = new FileReader(path);
+			doc.add(new TextField("contents", reader));
+			System.out.println("adding " + path);
+			writer.addDocument(doc);
+		} finally {
+			if (reader != null) {
+				reader.close();
+			}
+		}
+	}
+}
+{% endhighlight %}
+**基于索引搜索**  
+{% highlight java %}
+public void search() {
+	String index = "target/index";
+	String searchField = "contents";
+	String keyWorld = "String";
+	try {
+		IndexReader reader = DirectoryReader.open(FSDirectory
+				.open(new File(index)));
+		IndexSearcher searcher = new IndexSearcher(reader);
+		Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_40);
+		QueryParser parser = new QueryParser(Version.LUCENE_40, searchField, analyzer);
+		Query query = parser.parse(keyWorld);
+		System.out.println("Search [" + keyWorld + "]:");
+		TopDocs results = searcher.search(query, 10);
+		ScoreDoc[] hits = results.scoreDocs;
+		for (int i = 0; i < hits.length; i++) {
+			Document doc = searcher.doc(hits[i].doc);
+			System.out.println(doc.get("name"));
+		}
+		reader.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+}
+{% endhighlight %}
+
+项目基于Maven，完整源码请点击下载：[lucene.zip][2]
 
 
 [1]: http://lucene.apache.org "Lucene"
