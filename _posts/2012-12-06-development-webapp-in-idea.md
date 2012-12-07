@@ -51,12 +51,12 @@ description: '使用Idea社区版开发Web项目。'
 
 当然，Web开发还有很多方面啦，这篇仅仅是演示了如何使用[IDEA][11]结合[Maven][13]来开发（着重调试）Web项目。路漫漫其修远兮，吾将上下而求索，我也是初步来尝试[IDEA][11]，希望以后可以把它用好！！
 
-  [1]: http://static.oschina.net/uploads/space/2012/1206/222828_JrZA_80532.png
-  [2]: http://static.oschina.net/uploads/space/2012/1206/222904_DxyX_80532.png
-  [3]: http://static.oschina.net/uploads/space/2012/1206/223024_yV3j_80532.png
-  [4]: http://static.oschina.net/uploads/space/2012/1206/223812_yM8Q_80532.png
-  [5]: http://static.oschina.net/uploads/space/2012/1206/223909_KTqX_80532.png
-  [6]: http://static.oschina.net/uploads/space/2012/1206/223947_wYLs_80532.png
+  [1]: {{site.url}}/uploads/2012-12-06/222828_JrZA_80532.png
+  [2]: {{site.url}}/uploads/2012-12-06/222904_DxyX_80532.png
+  [3]: {{site.url}}/uploads/2012-12-06/223024_yV3j_80532.png
+  [4]: {{site.url}}/uploads/2012-12-06/223812_yM8Q_80532.png
+  [5]: {{site.url}}/uploads/2012-12-06/223909_KTqX_80532.png
+  [6]: {{site.url}}/uploads/2012-12-06/223947_wYLs_80532.png
 
   [11]: http://www.jetbrains.com/idea/
   [12]: http://www.eclipse.org/
