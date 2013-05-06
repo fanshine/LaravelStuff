@@ -1,9 +1,9 @@
 ---
+title: no branches ready for upload
 layout: post
-title:"Git - no branches ready for upload"
-date: 2013-04-15 10:09:07
-categories: Git
-tags: Git
+categories: ['Git']
+tags: ['Git']
+description: 'Git - no branches ready for upload'
 ---
 
 You must do the following steps:
