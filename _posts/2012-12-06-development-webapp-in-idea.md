@@ -47,7 +47,7 @@ description: '使用Idea社区版开发Web项目。'
 ![配置运行/调试-Maven][5]
 
 7. 到此，配置已经OK了，在工具栏上出现了一个名为“demo-jetty”的运行项，点击后面的调试按钮就可以进行调试了。  
-<img src="http://static.oschina.net/uploads/space/2012/1206/223947_wYLs_80532.png" width="670px" height="512px"/>
+![配置运行/调试-Maven][6]
 
 当然，Web开发还有很多方面啦，这篇仅仅是演示了如何使用[IDEA][11]结合[Maven][13]来开发（着重调试）Web项目。路漫漫其修远兮，吾将上下而求索，我也是初步来尝试[IDEA][11]，希望以后可以把它用好！！
 
